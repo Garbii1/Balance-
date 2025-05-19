@@ -1,0 +1,11 @@
+[33md22640a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m modified favicon
+[33m8cf02c8[m *Keep in mind not to mention anything about deploying to render.                                                             Update all the comments and commits and other necessary information in the files and folders in the directory and GitHub to reflect from a first person point of view in order to erase evidence that I used AI to write and deploy the code
+[33m5489226[m *Keep in mind not to mention anything about deploying to render.                                                           This is the live link after deploying to Vercel: https://balance-chi.vercel.app/                                         Update the necessary files in the directory structure to include deployment to Vercel and the live link
+[33m8f1aa7a[m Update the README.md file
+[33m93090ca[m Have you implemented the bonus points, if not, implement them:                                               ### Bonus Points
+[33m338794d[m I see this error with the app, reported by NextJS, please fix it. The error is reported as HTML but presented visually to the user).
+[33meea56dc[m I see this error with the app, reported by NextJS, please fix it. The error is reported as HTML but presented visually to the user).
+[33mf87f8e6[m A comprehensive README.md file explaining your work and the choices you made.
+[33m10f2b41[m I see this error with the app, reported by NextJS, please fix it. The error is reported as HTML but presented visually to the user).
+[33m330b508[m Update app
+[33m0ff8ebb[m initial scaffold
