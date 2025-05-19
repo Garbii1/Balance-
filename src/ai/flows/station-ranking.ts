@@ -1,12 +1,14 @@
+
 // src/ai/flows/station-ranking.ts
 'use server';
 
 /**
- * @fileOverview Ranks repair stations based on car type and selected service.
+ * @fileOverview This flow ranks repair stations.
+ * I designed it to consider car type and selected service to provide relevant rankings.
  *
- * - rankStations - A function that ranks stations.
- * - RankStationsInput - The input type for the rankStations function.
- * - RankStationsOutput - The return type for the rankStations function.
+ * - rankStations - Function that ranks stations.
+ * - RankStationsInput - Input type for the rankStations function.
+ * - RankStationsOutput - Return type for the rankStations function.
  */
 
 import {ai} from '@/ai/genkit';

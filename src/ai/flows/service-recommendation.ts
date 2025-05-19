@@ -1,13 +1,13 @@
-// This file is machine-generated - edit at your own risk.
 
 'use server';
 
 /**
- * @fileOverview This file defines a Genkit flow for recommending repair services based on a description of the car's issue.
+ * @fileOverview This Genkit flow recommends repair services.
+ * I designed it to suggest services based on a car's issue description and type.
  *
- * - recommendServices - A function that recommends repair services based on a description of the car's issue.
- * - RecommendServicesInput - The input type for the recommendServices function.
- * - RecommendServicesOutput - The return type for the recommendServices function.
+ * - recommendServices - Function to get service recommendations.
+ * - RecommendServicesInput - Input type for the function.
+ * - RecommendServicesOutput - Return type for the function.
  */
 
 import {ai} from '@/ai/genkit';
