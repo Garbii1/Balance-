@@ -1,5 +1,7 @@
-md
+
 # Balanceè - Smart Car Repair Booking
+
+**Live Link:** [https://balance-chi.vercel.app/](https://balance-chi.vercel.app/)
 
 Balanceè is a Next.js web application designed to simplify the process of finding and booking car repair services. It leverages AI to recommend and rank repair stations based on user-provided car type and service needs.
 
@@ -38,7 +40,7 @@ Finding a suitable and available car repair station can be time-consuming. Balan
     *   [React Hook Form](https://react-hook-form.com/) for managing form state and validation.
     *   [Zod](https://zod.dev/) for defining and validating data schemas, especially for forms and AI flow inputs/outputs.
 *   **Icons:** [Lucide Icons (lucide-react)](https://lucide.dev/) - A simply beautiful open-source icon set.
-*   **Theme Management:** Custom `ThemeProvider` using React Context for light/dark/system theme toggling.
+*   **Theme Management:** Custom `ThemeProvider` using React Context for light/dark/system theme toggling, with persistence via `localStorage`.
 
 ## AI Features (Genkit Flows)
 
@@ -107,6 +109,13 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
 *   **Component-Based Architecture:** The UI is broken down into reusable components (e.g., `StationCard`, `ServiceSelectionForm`) to promote modularity and maintainability.
 *   **Lucide Icons:** Provides a clean and consistent set of icons.
 
+## Bonus Points Implementation
+
+*   **State Management (Zustand):** The `useBalanceeStore` manages all key application states, including car type, service selection, station data, loading flags, and booking details.
+*   **Form Validation:** `ServiceSelectionForm` uses `react-hook-form` and `Zod` to validate that a car type and service are selected before submission, providing user feedback.
+*   **Animated Transitions:** Loading skeletons are used for station lists, and spinners indicate loading for time slots and form submissions. ShadCN UI components provide subtle default animations.
+*   **Dark Mode Toggle:** A theme provider (`src/components/balancee/theme-provider.tsx`) and a toggle button (`src/components/balancee/theme-toggle-button.tsx`) allow users to switch between light, dark, and system themes, with the preference persisted in `localStorage`.
+
 ## Getting Started
 
 ### Prerequisites
@@ -127,13 +136,13 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
     ```
 
 ### Environment Variables
-No specific API keys are required for the current mock data setup. If integrating with live Google AI services for Genkit beyond free tiers or for production, you would need to:
-1.  Create a `.env` file in the project root.
+For the Genkit AI flows to work when deployed (e.g., on Vercel), you need to set up a Google Cloud API key.
+1.  Create a `.env` file in the project root (this file is in `.gitignore` and should not be committed with the key).
 2.  Add your Google API key:
     ```env
     GOOGLE_API_KEY=your_google_api_key_here
     ```
-    *(Currently, the `.env` file is present but empty, and Genkit will use default credentials or application default credentials if available in the environment.)*
+    When deploying to Vercel, set this as an environment variable in the Vercel project settings.
 
 ### Running the Application
 
@@ -154,6 +163,22 @@ No specific API keys are required for the current mock data setup. If integratin
     ```
     This will start the Genkit developer UI, usually at `http://localhost:4000`. *Note: For this application, the Genkit flows are called directly from Next.js server-side actions, so this step is mainly for isolated flow development/testing.*
 
+## Deployment to Vercel
+
+This application is configured for easy deployment to [Vercel](https://vercel.com/).
+
+1.  **Push to Git:** Ensure your code is pushed to a GitHub, GitLab, or Bitbucket repository.
+2.  **Import to Vercel:**
+    *   Sign up or log in to Vercel.
+    *   Click "Add New..." > "Project".
+    *   Import your Git repository. Vercel will automatically detect it as a Next.js project.
+3.  **Configure Environment Variables:**
+    *   In your Vercel project settings, navigate to "Environment Variables".
+    *   Add `GOOGLE_API_KEY` with your Google Cloud API key value. This is crucial for the AI features to work in the deployed environment.
+4.  **Deploy:** Click the "Deploy" button. Vercel will build and deploy your application.
+
+**Live Link:** [https://balance-chi.vercel.app/](https://balance-chi.vercel.app/)
+
 ## Potential Future Enhancements
 
 *   **Real Backend Integration:**
@@ -171,5 +196,3 @@ No specific API keys are required for the current mock data setup. If integratin
 *   **Detailed Error Reporting:** Implement a more robust error tracking system.
 
 ---
-
-This README provides an overview of the Balanceè project. For more detailed information on specific technologies, please refer to their respective documentation.
