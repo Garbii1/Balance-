@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useEffect } from 'react';
@@ -8,7 +9,8 @@ import { TimeSlotDisplay } from '@/components/balancee/TimeSlotDisplay';
 import { BookingConfirmationDialog } from '@/components/balancee/BookingConfirmationDialog';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
-import { Car, Wrench } from 'lucide-react'; // Example icons for header
+import { Car, Wrench } from 'lucide-react';
+import { ThemeToggleButton } from '@/components/balancee/theme-toggle-button';
 
 export default function BalanceePage() {
   const {
@@ -46,13 +48,16 @@ export default function BalanceePage() {
 
   return (
     <div className="container mx-auto px-2 sm:px-4 py-8 min-h-screen">
-      <header className="mb-10 text-center">
+      <header className="mb-10 text-center relative">
         <div className="flex items-center justify-center space-x-4 mb-2">
           <Car className="h-12 w-12 text-primary" />
           <h1 className="text-4xl sm:text-5xl font-bold text-primary">Balanceè</h1>
           <Wrench className="h-12 w-12 text-primary" />
         </div>
         <p className="text-lg text-muted-foreground">Smart Car Repair Booking</p>
+        <div className="absolute top-0 right-0">
+          <ThemeToggleButton />
+        </div>
       </header>
 
       <main className="space-y-10 max-w-4xl mx-auto">
