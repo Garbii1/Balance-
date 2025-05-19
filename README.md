@@ -19,6 +19,10 @@ Finding a suitable and available car repair station can be time-consuming. Balan
 *   **Time Slot Display:** Allows users to view available (mocked) time slots for a chosen repair station.
 *   **Booking Confirmation:** A dialog confirms the booking details once a time slot is selected and booked.
 *   **Responsive Design:** Built with Tailwind CSS and ShadCN UI components for a modern and responsive user experience.
+*   **State Management:** Uses Zustand for efficient global state management of user selections, station data, and UI states.
+*   **Form Validation:** Includes light form validation (e.g., requiring car type and service selection) using React Hook Form and Zod.
+*   **Animated Transitions:** Incorporates loading skeletons, spinners, and uses ShadCN UI's built-in animations for a smoother user experience.
+*   **Dark Mode Toggle:** User-selectable light, dark, and system themes with persistence via localStorage, enhancing user accessibility and preference.
 
 ## Tech Stack
 
@@ -27,12 +31,14 @@ Finding a suitable and available car repair station can be time-consuming. Balan
 *   **UI Components:** [ShadCN UI](https://ui.shadcn.com/) - A collection of beautifully designed, accessible, and customizable components.
 *   **Styling:** [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
     *   Theming for ShadCN components is configured in `src/app/globals.css` using CSS HSL variables.
-*   **State Management:** [Zustand](https://zustand-demo.pmnd.rs/) - A small, fast, and scalable state-management solution.
+*   **State Management:** [Zustand](https://zustand-demo.pmnd.rs/) - A small, fast, and scalable state-management solution for managing selections and application state.
 *   **AI Integration:** [Genkit (Firebase Genkit)](https://firebase.google.com/docs/genkit) - Used for building and managing AI-powered flows.
     *   Utilizes Google's Gemini models (configured in `src/ai/genkit.ts`).
-*   **Form Handling:** [React Hook Form](https://react-hook-form.com/) for managing form state and validation.
-*   **Schema Validation:** [Zod](https://zod.dev/) for defining and validating data schemas, especially for forms and AI flow inputs/outputs.
+*   **Form Handling & Validation:**
+    *   [React Hook Form](https://react-hook-form.com/) for managing form state and validation.
+    *   [Zod](https://zod.dev/) for defining and validating data schemas, especially for forms and AI flow inputs/outputs.
 *   **Icons:** [Lucide Icons (lucide-react)](https://lucide.dev/) - A simply beautiful open-source icon set.
+*   **Theme Management:** Custom `ThemeProvider` using React Context for light/dark/system theme toggling.
 
 ## AI Features (Genkit Flows)
 
@@ -66,10 +72,11 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
 ## Project Structure
 
 *   `src/app/page.tsx`: The main entry point and primary page for the Balanceè application. It orchestrates the different components and manages the overall booking flow.
-*   `src/components/balancee/`: Contains the custom React components specific to the Balanceè application logic (e.g., `ServiceSelectionForm.tsx`, `StationList.tsx`, `TimeSlotDisplay.tsx`, `BookingConfirmationDialog.tsx`).
+*   `src/components/balancee/`: Contains the custom React components specific to the Balanceè application logic (e.g., `ServiceSelectionForm.tsx`, `StationList.tsx`, `TimeSlotDisplay.tsx`, `BookingConfirmationDialog.tsx`, `theme-provider.tsx`, `theme-toggle-button.tsx`).
 *   `src/components/ui/`: Houses the ShadCN UI components that have been added to the project (e.g., `Button.tsx`, `Card.tsx`, `Select.tsx`).
 *   `src/hooks/useBalanceeStore.ts`: Defines the Zustand store for managing global application state, including user selections, station data, loading states, and booking confirmation.
 *   `src/hooks/use-toast.ts`: Custom hook for managing toast notifications.
+*   `src/hooks/use-mobile.tsx`: Custom hook for detecting mobile viewport.
 *   `src/lib/balancee/`:
     *   `data.ts`: Contains mock data for car types, services, repair stations, and a function to simulate fetching time slots. This is crucial for development and demonstration without a live backend.
     *   `types.ts`: Defines TypeScript types and interfaces used throughout the Balanceè feature (e.g., `CarType`, `Service`, `Station`, `RankedStation`).
@@ -78,7 +85,7 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
     *   `genkit.ts`: Configures and initializes the Genkit AI framework.
     *   `dev.ts`: Development server setup for Genkit flows (useful for testing flows independently).
     *   `flows/`: Contains the Genkit AI flow definitions (`station-ranking.ts`, `service-recommendation.ts`).
-*   `src/app/layout.tsx`: The root layout for the Next.js application, including metadata, font setup (`Inter`), and the Toaster component.
+*   `src/app/layout.tsx`: The root layout for the Next.js application, including metadata, font setup (`Inter`), the `ThemeProvider`, and the Toaster component.
 *   `src/app/globals.css`: Global stylesheets, Tailwind CSS base/component/utility layers, and ShadCN UI theme variable definitions (CSS HSL values for colors, radius, etc.).
 *   `public/`: Static assets (currently empty).
 *   `package.json`: Lists project dependencies and scripts.
@@ -90,6 +97,9 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
 
 *   **AI-First Approach for Ranking:** Instead of simple filtering, Genkit and an LLM are used to provide more nuanced and justified station rankings. This allows for potentially complex matching logic in the future.
 *   **Client-Side State Management (Zustand):** Chosen for its simplicity and minimal boilerplate. It effectively manages the user's selections, fetched data, loading states, and errors across components.
+*   **Form Validation & User Feedback:** Light form validation is implemented using React Hook Form and Zod to guide users (e.g., requiring car type and service). Error messages are displayed through the Zustand store and form feedback.
+*   **Animated Transitions & UI Feedback:** Loading states are indicated with skeletons and spinners. ShadCN UI components provide inherent animations for a smoother feel.
+*   **Theme Customization (Dark Mode):** A `ThemeProvider` and toggle button allow users to switch between light, dark, and system themes, with preferences saved to `localStorage`. This enhances user experience and accessibility.
 *   **Mock Data for Rapid Prototyping:** `src/lib/balancee/data.ts` provides static data for stations, services, and time slots. This enabled rapid UI development and testing of the AI flows without needing a backend database. The `getMockTimeSlots` function also simulates API call latency.
 *   **ShadCN UI & Tailwind CSS:** This combination offers a rich set of pre-built, accessible components that are highly customizable with Tailwind's utility classes. This accelerates UI development while maintaining a modern aesthetic. The theme is controlled via CSS variables in `globals.css`, allowing for easy visual adjustments.
 *   **Server Components & App Router:** Leveraging Next.js's App Router and defaulting to Server Components where appropriate for performance benefits. Client components (`'use client'`) are used when browser-specific APIs or interactivity (hooks like `useState`, `useEffect`) are needed.
@@ -163,4 +173,3 @@ No specific API keys are required for the current mock data setup. If integratin
 ---
 
 This README provides an overview of the Balanceè project. For more detailed information on specific technologies, please refer to their respective documentation.
-
