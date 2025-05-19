@@ -1,11 +1,11 @@
+md
+# Balanceè - Smart Car Repair Booking
 
-# AutoEase - Smart Car Repair Booking
-
-AutoEase is a Next.js web application designed to simplify the process of finding and booking car repair services. It leverages AI to recommend and rank repair stations based on user-provided car type and service needs.
+Balanceè is a Next.js web application designed to simplify the process of finding and booking car repair services. It leverages AI to recommend and rank repair stations based on user-provided car type and service needs.
 
 ## Core Problem Solved
 
-Finding a suitable and available car repair station can be time-consuming. AutoEase aims to streamline this by:
+Finding a suitable and available car repair station can be time-consuming. Balanceè aims to streamline this by:
 1.  Allowing users to specify their car type and the repair service they need.
 2.  Using AI to rank available repair stations based on suitability.
 3.  Displaying available time slots for the selected station.
@@ -65,14 +65,14 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
 
 ## Project Structure
 
-*   `src/app/page.tsx`: The main entry point and primary page for the AutoEase application. It orchestrates the different components and manages the overall booking flow.
-*   `src/components/autoease/`: Contains the custom React components specific to the AutoEase application logic (e.g., `ServiceSelectionForm.tsx`, `StationList.tsx`, `TimeSlotDisplay.tsx`, `BookingConfirmationDialog.tsx`).
+*   `src/app/page.tsx`: The main entry point and primary page for the Balanceè application. It orchestrates the different components and manages the overall booking flow.
+*   `src/components/balancee/`: Contains the custom React components specific to the Balanceè application logic (e.g., `ServiceSelectionForm.tsx`, `StationList.tsx`, `TimeSlotDisplay.tsx`, `BookingConfirmationDialog.tsx`).
 *   `src/components/ui/`: Houses the ShadCN UI components that have been added to the project (e.g., `Button.tsx`, `Card.tsx`, `Select.tsx`).
-*   `src/hooks/useAutoEaseStore.ts`: Defines the Zustand store for managing global application state, including user selections, station data, loading states, and booking confirmation.
+*   `src/hooks/useBalanceeStore.ts`: Defines the Zustand store for managing global application state, including user selections, station data, loading states, and booking confirmation.
 *   `src/hooks/use-toast.ts`: Custom hook for managing toast notifications.
-*   `src/lib/autoease/`:
+*   `src/lib/balancee/`:
     *   `data.ts`: Contains mock data for car types, services, repair stations, and a function to simulate fetching time slots. This is crucial for development and demonstration without a live backend.
-    *   `types.ts`: Defines TypeScript types and interfaces used throughout the AutoEase feature (e.g., `CarType`, `Service`, `Station`, `RankedStation`).
+    *   `types.ts`: Defines TypeScript types and interfaces used throughout the Balanceè feature (e.g., `CarType`, `Service`, `Station`, `RankedStation`).
 *   `src/lib/utils.ts`: Utility functions, primarily `cn` for merging Tailwind CSS classes.
 *   `src/ai/`:
     *   `genkit.ts`: Configures and initializes the Genkit AI framework.
@@ -90,7 +90,7 @@ This file initializes and configures Genkit, specifying the `googleAI` plugin an
 
 *   **AI-First Approach for Ranking:** Instead of simple filtering, Genkit and an LLM are used to provide more nuanced and justified station rankings. This allows for potentially complex matching logic in the future.
 *   **Client-Side State Management (Zustand):** Chosen for its simplicity and minimal boilerplate. It effectively manages the user's selections, fetched data, loading states, and errors across components.
-*   **Mock Data for Rapid Prototyping:** `src/lib/autoease/data.ts` provides static data for stations, services, and time slots. This enabled rapid UI development and testing of the AI flows without needing a backend database. The `getMockTimeSlots` function also simulates API call latency.
+*   **Mock Data for Rapid Prototyping:** `src/lib/balancee/data.ts` provides static data for stations, services, and time slots. This enabled rapid UI development and testing of the AI flows without needing a backend database. The `getMockTimeSlots` function also simulates API call latency.
 *   **ShadCN UI & Tailwind CSS:** This combination offers a rich set of pre-built, accessible components that are highly customizable with Tailwind's utility classes. This accelerates UI development while maintaining a modern aesthetic. The theme is controlled via CSS variables in `globals.css`, allowing for easy visual adjustments.
 *   **Server Components & App Router:** Leveraging Next.js's App Router and defaulting to Server Components where appropriate for performance benefits. Client components (`'use client'`) are used when browser-specific APIs or interactivity (hooks like `useState`, `useEffect`) are needed.
 *   **Error Handling:** Basic error handling is implemented within the Zustand store (`error` state) and displayed on the main page. Genkit flows inherently handle some level of error management, but more robust application-level error strategies could be added.
@@ -162,4 +162,5 @@ No specific API keys are required for the current mock data setup. If integratin
 
 ---
 
-This README provides an overview of the AutoEase project. For more detailed information on specific technologies, please refer to their respective documentation.
+This README provides an overview of the Balanceè project. For more detailed information on specific technologies, please refer to their respective documentation.
+

@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { useAutoEaseStore } from '@/hooks/useAutoEaseStore';
-import { ServiceSelectionForm } from '@/components/autoease/ServiceSelectionForm';
-import { StationList } from '@/components/autoease/StationList';
-import { TimeSlotDisplay } from '@/components/autoease/TimeSlotDisplay';
-import { BookingConfirmationDialog } from '@/components/autoease/BookingConfirmationDialog';
+import { useBalanceeStore } from '@/hooks/useBalanceeStore';
+import { ServiceSelectionForm } from '@/components/balancee/ServiceSelectionForm';
+import { StationList } from '@/components/balancee/StationList';
+import { TimeSlotDisplay } from '@/components/balancee/TimeSlotDisplay';
+import { BookingConfirmationDialog } from '@/components/balancee/BookingConfirmationDialog';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Car, Wrench } from 'lucide-react'; // Example icons for header
 
-export default function AutoEasePage() {
+export default function BalanceePage() {
   const {
     fetchRankedStations,
     rankedStations,
@@ -26,7 +26,7 @@ export default function AutoEasePage() {
     confirmBooking,
     bookingConfirmed,
     resetBooking,
-  } = useAutoEaseStore();
+  } = useBalanceeStore();
 
   useEffect(() => {
     // Clear any persistent errors on mount or when relevant state changes
@@ -49,7 +49,7 @@ export default function AutoEasePage() {
       <header className="mb-10 text-center">
         <div className="flex items-center justify-center space-x-4 mb-2">
           <Car className="h-12 w-12 text-primary" />
-          <h1 className="text-4xl sm:text-5xl font-bold text-primary">AutoEase</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-primary">Balanceè</h1>
           <Wrench className="h-12 w-12 text-primary" />
         </div>
         <p className="text-lg text-muted-foreground">Smart Car Repair Booking</p>
@@ -100,7 +100,7 @@ export default function AutoEasePage() {
       </main>
       <footer className="text-center mt-12 py-6 border-t">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} AutoEase. All rights reserved.
+          &copy; {new Date().getFullYear()} Balanceè. All rights reserved.
         </p>
       </footer>
     </div>

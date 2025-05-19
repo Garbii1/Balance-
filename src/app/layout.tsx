@@ -1,3 +1,4 @@
+tsx
 import type {Metadata} from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -9,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'AutoEase - Smart Car Repair Booking',
-  description: 'Intelligently book your car repair services with AutoEase.',
+  title: 'Balanceè - Smart Car Repair Booking',
+  description: 'Intelligently book your car repair services with Balanceè.',
 };
 
 export default function RootLayout({
@@ -27,3 +28,4 @@ export default function RootLayout({
     </html>
   );
 }
+
