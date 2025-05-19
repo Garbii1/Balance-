@@ -1,5 +1,5 @@
 import type { CarType, Service, Station, TimeSlot } from './types';
-import { CarFront, Car, Truck, Bike, Bus, Droplets, Repeat, Disc3, SearchCog, BatteryCharging, ThermometerSnowflake, Wrench } from 'lucide-react';
+import { CarFront, Car, Truck, Bike, Bus, Droplets, Repeat, Disc3, SearchCode, BatteryCharging, ThermometerSnowflake, Wrench } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export const carTypes: { value: CarType; label: string; icon: LucideIcon }[] = [
@@ -14,7 +14,7 @@ export const services: { value: Service; label: string; icon: LucideIcon }[] = [
   { value: "Oil Change", label: "Oil Change", icon: Droplets },
   { value: "Tire Rotation", label: "Tire Rotation", icon: Repeat },
   { value: "Brake Inspection", label: "Brake Inspection", icon: Disc3 },
-  { value: "Engine Diagnostics", label: "Engine Diagnostics", icon: SearchCog },
+  { value: "Engine Diagnostics", label: "Engine Diagnostics", icon: SearchCode },
   { value: "Battery Replacement", label: "Battery Replacement", icon: BatteryCharging },
   { value: "Air Conditioning Repair", label: "A/C Repair", icon: ThermometerSnowflake },
   { value: "General Maintenance", label: "General Maintenance", icon: Wrench },

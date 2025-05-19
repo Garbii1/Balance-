@@ -1,20 +1,12 @@
 import type {Metadata} from 'next';
-import { Geist_Sans } from 'next/font/google'; // Corrected import
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"; // Added Toaster
+import { Toaster } from "@/components/ui/toaster";
 
-const geistSans = Geist_Sans({ // Corrected usage
-  variable: '--font-geist-sans',
+const inter = Inter({
   subsets: ['latin'],
+  variable: '--font-inter',
 });
-
-// Geist_Mono is not explicitly used in the proposal's typography, 
-// but keeping it if other parts of the scaffold rely on it.
-// If not, it can be removed. For now, let's assume it might be used implicitly by some components.
-// const geistMono = Geist_Mono({ 
-//   variable: '--font-geist-mono',
-//   subsets: ['latin'],
-// });
 
 export const metadata: Metadata = {
   title: 'AutoEase - Smart Car Repair Booking',
@@ -28,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         {children}
         <Toaster />
       </body>
