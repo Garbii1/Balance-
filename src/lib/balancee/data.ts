@@ -74,7 +74,7 @@ export const mockStations: Station[] = [
     carTypes: ["Sedan", "SUV", "Truck", "Van", "Motorcycle"],
     rating: 4.0,
     reviewCount: 95,
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBbGxSb3VuZCUyMEF1dG8lMjBTZXJ2aWNlc3xlbnwwfHx8fDE3NDgwMDc5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     coords: { lat: 34.0510, lng: -118.2550 },
   }
 ];
