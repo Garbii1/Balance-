@@ -63,7 +63,7 @@ export const mockStations: Station[] = [
     carTypes: ["Motorcycle"],
     rating: 4.9,
     reviewCount: 150,
-    image: "https://images.unsplash.com/photo-1636761358770-009ce3957519?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8dHdvJTIwd2hlZWwlMjBzZWRhbiUyMGNhcnMlMjBhdCUyMG1lY2hhbmljfGVufDB8fHx8MTc0ODAwOTA5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb3RvcmN5Y2xlJTIwbWVjaGFuaWN8ZW58MHx8fHwxNzQ4MDA5NjE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
     coords: { lat: 34.0580, lng: -118.2480 },
   },
   {
@@ -106,3 +106,4 @@ export const getMockTimeSlots = (stationId: string, service: Service): Promise<T
     }, 800); // Simulate network delay
   });
 };
+
